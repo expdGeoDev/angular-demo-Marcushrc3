@@ -9,3 +9,4 @@ import { InputParentComponent } from './input-parent.component';
 	styles: ``,
 })
 export class InputDemoComponent {}
+	

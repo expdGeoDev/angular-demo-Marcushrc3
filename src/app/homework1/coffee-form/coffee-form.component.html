@@ -1,0 +1,14 @@
+<form (ngSubmit)="onSubmit()">
+    <label for="brand">Brand:</label>
+    <input id="brand" [(ngModel)]="coffee.brand" name="brand" required>
+  
+    <label for="groundOrBeans">Ground vs Beans:</label>
+    <input id="groundOrBeans" [(ngModel)]="coffee.groundOrBeans" name="groundOrBeans" required>
+  
+    <label for="roastType">Roast Type:</label>
+    <input id="roastType" [(ngModel)]="coffee.roastType" name="roastType" required>
+  
+    <button type="submit">Submit</button>
+    <button type="button" (click)="onReset()">Reset</button>
+  </form>
+  
