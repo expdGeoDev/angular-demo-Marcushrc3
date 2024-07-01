@@ -1,14 +1,34 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #coffeeForm="ngForm">
+  <div>
     <label for="brand">Brand:</label>
-    <input id="brand" [(ngModel)]="coffee.brand" name="brand" required>
-  
-    <label for="groundOrBeans">Ground vs Beans:</label>
-    <input id="groundOrBeans" [(ngModel)]="coffee.groundOrBeans" name="groundOrBeans" required>
-  
+    <input id="brand" [(ngModel)]="coffee.brand" name="brand" required #brand="ngModel">
+    <div *ngIf="brand.invalid && (brand.dirty || brand.touched)" class="error">
+      Brand is required.
+    </div>
+  </div>
+
+  <div>
+    <!-- <label>Ground vs Beans:</label> -->
+    <label>
+      <input type="radio" [(ngModel)]="coffee.groundOrBeans" name="groundOrBeans" value="Ground" required #groundOrBeans="ngModel"> Ground
+    </label>
+    <label>
+      <input type="radio" [(ngModel)]="coffee.groundOrBeans" name="groundOrBeans" value="Beans" required> Beans
+    </label>
+    <div *ngIf="groundOrBeans.invalid && (groundOrBeans.dirty || groundOrBeans.touched)" class="error">
+      Please select either Ground or Beans.
+    </div>
+  </div>
+
+  <div>
     <label for="roastType">Roast Type:</label>
-    <input id="roastType" [(ngModel)]="coffee.roastType" name="roastType" required>
-  
-    <button type="submit">Submit</button>
-    <button type="button" (click)="onReset()">Reset</button>
-  </form>
-  
+    <select id="roastType" [(ngModel)]="coffee.roastType" name="roastType" required #roastType="ngModel">
+      <option *ngFor="let type of roastTypes" [value]="type">{{ type }}</option>
+    </select>
+    <div *ngIf="roastType.invalid && (roastType.dirty || roastType.touched)" class="error">
+      Please select a roast type.
+    </div>
+  </div>
+  <button type="submit" [disabled]="coffeeForm.form.invalid">Submit</button>
+  <button type="button" (click)="onReset()">Reset</button>
+</form>
