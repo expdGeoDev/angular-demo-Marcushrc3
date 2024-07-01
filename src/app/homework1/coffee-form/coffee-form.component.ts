@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { CoffeeDataService, RoastType } from '../coffee-data.service';
+import { CoffeeDataService} from '../../coffee-data.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { any } from '@uirouter/angular';
+import { Coffee, RoastType } from '../../../data/coffee-data';
+
 
 @Component({
   selector: 'app-coffee-form',
@@ -14,16 +16,17 @@ import { any } from '@uirouter/angular';
 
 
 export class CoffeeFormComponent {
-  coffee = {
+  coffee : Coffee = {
+    id: 0,
     brand: '',
     groundOrBeans: '',
-    roastType: RoastType.Light ,
+    roast: RoastType.Light,
     singleOrigin: false,
     flavorNotes: ''
     
   };
 
-  roastTypes = Object.values(RoastType); // Converta o enum para um array de valores
+  roastTypes = Object.values(RoastType); 
 
   constructor(private coffeeDataService: CoffeeDataService) {}
 
@@ -31,10 +34,10 @@ export class CoffeeFormComponent {
     
     this.coffeeDataService.addCoffee(this.coffee);
     alert("Coffee added sucessfully");
-    this.coffee = {
+    this.coffee = {id: 0,
       brand: '',
       groundOrBeans: '',
-      roastType: RoastType.Light,
+      roast: RoastType.Light,
       singleOrigin: false,
     flavorNotes: ''
     };
@@ -42,9 +45,10 @@ export class CoffeeFormComponent {
 
   onReset() {
     this.coffee = {
+      id: 0,
       brand: '',
       groundOrBeans: '',
-      roastType: RoastType.Light,
+      roast: RoastType.Light,
       singleOrigin: false,
       flavorNotes: ''
     };

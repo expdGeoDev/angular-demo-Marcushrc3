@@ -21,4 +21,17 @@ export class CoffeeDataService {
 	findByBrand(brandName: string): Coffee[] | undefined {
 		return this.coffeeData.filter((coffee) => coffee.brand === brandName);
 	}
+	
+	addCoffee(coffee: Coffee) {
+		console.log('Submitted coffee:', coffee);
+		coffeeData.push(coffee);
+		console.log(this.getAllBeans());
+	}
+
 }
+
+export enum RoastType {
+	Light = 'Light',
+	Medium = 'Medium',
+	Dark = 'Dark'
+  }

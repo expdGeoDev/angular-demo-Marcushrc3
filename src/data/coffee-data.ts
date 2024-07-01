@@ -1,40 +1,43 @@
+export enum RoastType {
+	Light = 'Light',
+	Medium = 'Medium',
+	Dark = 'Dark'
+  }
+
 export const coffeeData: Coffee[] = [
 	{
 		id: 1,
 		brand: 'Kicking Horse',
-		roast: 'dark',
+		roast: RoastType.Dark,
 		groundOrBeans: 'beans',
 	},
 	{
 		id: 2,
 		brand: 'Greenwood Lake Roasters',
-		roast: 'medium',
+		roast: RoastType.Medium,
 		groundOrBeans: 'ground',
 	},
 	{
 		id: 3,
 		brand: 'Counter Culture',
-		roast: 'light',
+		roast: RoastType.Medium,
 		groundOrBeans: 'beans',
 	},
 	{
 		id: 4,
 		brand: 'Starbucks',
-		roast: 'medium',
+		roast: RoastType.Medium,
 		groundOrBeans: 'ground',
 	},
 ];
-
-type RoastType = 'light' | 'medium' | 'dark';
-type GroundOrBeans = 'ground' | 'beans';
 
 export interface Coffee {
 	id: number;
 	brand: string;
 	roast: RoastType;
-	groundOrBeans: GroundOrBeans;
-	// If you want to limit the numeric values, look here: https://stackoverflow.com/a/39495173
+	groundOrBeans: string;
 	grind?: number;
 	singleOrigin?: boolean;
 	flavorNotes?: string;
 }
+

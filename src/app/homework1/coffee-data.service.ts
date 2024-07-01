@@ -14,9 +14,6 @@ export class CoffeeDataService {
     this.coffees.push(coffee);
   }
 
-  getCoffees() {
-    return this.coffees;
-  }
 }
 
 
