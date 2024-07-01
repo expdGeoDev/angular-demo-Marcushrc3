@@ -7,11 +7,21 @@ export class CoffeeDataService {
 
   private coffees : any = [];
 
-  addCoffee(coffee: any) {
+  addCoffee(coffee: { brand: string, groundOrBeans: string, roastType: RoastType }) {
+
+    console.log('Submitted coffee:', coffee);
+    console.log('The Complete list is:', this.coffees);
     this.coffees.push(coffee);
   }
 
   getCoffees() {
     return this.coffees;
   }
+}
+
+
+export enum RoastType {
+  Light = 'Light',
+  Medium = 'Medium',
+  Dark = 'Dark'
 }
