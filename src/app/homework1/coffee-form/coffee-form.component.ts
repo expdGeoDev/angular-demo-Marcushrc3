@@ -16,8 +16,11 @@ import { any } from '@uirouter/angular';
 export class CoffeeFormComponent {
   coffee = {
     brand: '',
-    groundOrBeans: '', // Defina um valor padrão
-    roastType: RoastType.Light // Defina um valor padrão usando o enum
+    groundOrBeans: '',
+    roastType: RoastType.Light ,
+    singleOrigin: false,
+    flavorNotes: ''
+    
   };
 
   roastTypes = Object.values(RoastType); // Converta o enum para um array de valores
@@ -31,7 +34,9 @@ export class CoffeeFormComponent {
     this.coffee = {
       brand: '',
       groundOrBeans: '',
-      roastType: RoastType.Light
+      roastType: RoastType.Light,
+      singleOrigin: false,
+    flavorNotes: ''
     };
   }
 
@@ -39,7 +44,9 @@ export class CoffeeFormComponent {
     this.coffee = {
       brand: '',
       groundOrBeans: '',
-      roastType: RoastType.Light
+      roastType: RoastType.Light,
+      singleOrigin: false,
+      flavorNotes: ''
     };
   }
 }

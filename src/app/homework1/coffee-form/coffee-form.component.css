@@ -1,23 +1,86 @@
+.coffee-image {
+  float: left;
+  margin-right: 20px; 
+  width: 300px; 
+  border-radius: 10px;
+  
+}
+.welcome-message {
+  padding-top: 10%;
+  text-align: left;
+  font-size: 60px;
+  font-family: 'Lucida Handwriting';
+}
+
 form {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  max-width: 300px;
-  margin: auto;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  float:inline-start;
+  padding-left: 5%;
+}
+
+form div {
+  display: flex;
+  flex-direction:column;
 }
 
 label {
-  margin-top: 10px;
+  font-weight: bold;
 }
 
-input, select {
-  margin-bottom: 10px;
+input[type="text"],
+textarea,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+#brand{
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  margin-top: 10px;
+  align-items: left;
+
+}
+input[type="checkbox"] {
+  margin-top: 10px;
+  align-items: left;
+
+}
+.single-origin {
+  display: flex;
+  align-items: center;
+}
+
+.single-origin label {
+  margin-right: 10px; 
 }
 
 button {
-  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  padding-top: 10px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px; 
+  
 }
-/* CSS simples para estilização básica */
+
+button[disabled] {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
 .error {
   color: red;
-  font-size: 12px;
+  font-size: 14px;
 }
