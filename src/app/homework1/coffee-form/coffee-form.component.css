@@ -1,18 +1,23 @@
 form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-    margin: auto;
-  }
-  
-  label {
-    margin-top: 10px;
-  }
-  
-  input {
-    margin-bottom: 10px;
-  }
-  
-  button {
-    margin-top: 10px;
-  }
+  display:flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: auto;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input, select {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+/* CSS simples para estilização básica */
+.error {
+  color: red;
+  font-size: 12px;
+}
