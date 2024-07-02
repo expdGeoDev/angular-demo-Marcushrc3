@@ -1,1 +1,52 @@
-<p>add-coffee-form works!</p>
+<div class="welcome-message">
+    <p>Welcome to Expeditors Coffee Form!</p>
+    <img src="assets/pngegg.png" alt="Coffee Image" class="coffee-image">
+  </div>
+    
+  <form (ngSubmit)="onSubmit()" #coffeeForm="ngForm">
+    <div src>
+        <div>
+          <label for="brand">Brand:</label>
+          <input id="brand" [(ngModel)]="coffee.brand" name="brand" required #brand="ngModel">
+          <div *ngIf="brand.invalid && (brand.dirty || brand.touched)" class="error">
+            Brand is required.
+          </div>
+        </div>
+      
+        <div>
+          <label>
+            <input type="radio" [(ngModel)]="coffee.groundOrBeans" name="groundOrBeans" value="Ground" required #groundOrBeans="ngModel"> Ground
+          </label>
+            <label>
+              <input type="radio" [(ngModel)]="coffee.groundOrBeans" name="groundOrBeans" value="Beans" required> Beans
+            </label>
+          <div *ngIf="groundOrBeans.invalid && (groundOrBeans.dirty || groundOrBeans.touched)" class="error">
+            Please select either Ground or Beans.
+          </div>
+        </div>
+      
+        <div>
+          <label for="roastType">Roast Type:</label>
+          <select id="roastType" [(ngModel)]="coffee.roast" name="roastType" required #roastType="ngModel">
+            <option *ngFor="let type of roastTypes" [value]="type">{{ type }}</option>
+          </select>
+          <div class="single-origin">
+            <label for="singleOrigin">Single Origin:</label>
+            <input type="checkbox" id="singleOrigin" [(ngModel)]="coffee.singleOrigin" name="singleOrigin">
+          </div>
+          <div *ngIf="roastType.invalid && (roastType.dirty || roastType.touched)" class="error">
+            Please select a roast type.
+          </div>
+        </div>
+      
+      
+        <div>
+          <label for="flavorNotes">Flavor Notes:</label>
+          <textarea id="flavorNotes" [(ngModel)]="coffee.flavorNotes" name="flavorNotes" rows="4" cols="50"></textarea>
+        </div>
+      
+        <button type="submit" [disabled]="coffeeForm.form.invalid">Submit</button>
+        <button type="button" name="Reset" (click)="coffeeForm.resetForm()">Reset</button>
+      </div>
+  </form>
+  
